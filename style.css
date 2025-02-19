@@ -1,0 +1,325 @@
+body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+}
+
+.container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+img {
+    width: 100%; 
+    height: auto;
+    max-width: 100%; 
+}
+.picture-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 60vh; 
+    border: 2px solid black;
+}
+
+
+h1{
+    font-family: "Playwrite IN", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    position: sticky;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease, font-size 0.3s ease, text-decoration 0.3s ease;
+
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.links a{
+    padding: 10px;
+}
+
+#slideshow-container {
+    position: relative;
+    width: 420px; /* Adjust as needed */
+    height: 560px; /* Adjust as needed */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+   
+    
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    opacity: 0.6; /* Make previous images slightly visible */
+}
+
+
+.active {
+    transform: translateX(0);
+    opacity: 1; /* Fully visible */
+    z-index: 2;
+}
+
+.previous {
+    transform: translateX(-20px); /* Shift previous image slightly left */
+    z-index: 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: 1 column for mobile */
+    grid-gap: 15px;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 70px;
+    
+}
+.grid-item {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(40px); /* Move slightly down */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-left: 20px
+}
+
+.grid-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.line {
+    width: 90%; /* Keeps it responsive */
+    max-width: 600px; /* Prevents it from being too wide on larger screens */
+    height: 2px; /* Thickness of the line */
+    background-color: black; /* Line color */
+    border: none; /* Removes default styling */
+    margin: 20px auto; 
+}
+
+h2{
+  font-family: "Charmonman", serif;
+  font-weight: 900;
+  text-align: center;
+}
+
+.karpati-text{
+    width: 90%; /* Keeps it responsive */
+    max-width: 600px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 25px; 
+    background-color: rgb(255, 255, 255);
+}
+.karpati-text p{
+    padding: 3px 10px;
+}
+.hero-section{
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(220, 234, 101));
+    padding-top: 20px;
+}
+.karpati{
+    
+    padding-top: 50px;
+    background: linear-gradient(to bottom, rgb(220, 234, 101), white);
+
+}
+.lito img{
+    width: 100%;  /* Make images fill grid items */
+  height: auto;  /* Maintain aspect ratio */
+  object-fit: contain;
+}
+.summer{
+    padding-top: 50px;
+    background: linear-gradient(to bottom,  white, rgb(220, 234, 101));
+    padding-bottom: 50px;
+}
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery-wrapper {
+    width: 100%;
+    max-width: 300px; /* Adjust for mobile */
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.gallery img {
+    width: 100%;
+    flex-shrink: 0; /* Prevents image shrinking */
+}
+
+#infoButton {
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Overlay Styling */
+  #infoOverlay {
+    position: fixed; /* Ensures it covers the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000; /* Ensures it appears on top */
+  }
+  
+  /* Ensure the info box itself also has a high z-index */
+  .infoBox {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001; 
+    text-align: center;
+  }  
+ 
+  /* Close Button */
+  #closeButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 15px;
+   
+  }
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px; 
+        width: 100%;
+    }
+    .grid-item:last-child {
+        grid-column: 2 / 3; /* Center the last image */
+    }
+
+
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    img {
+        width: 80%; 
+        max-width: 650px; 
+    }
+   
+    #slideshow-container{
+        padding: 2rem;
+        margin-left: 300px;
+    }
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    gap: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 50px;
+    padding-left: 50px;
+
+}
+.gallery-wrapper {
+    max-width: 500px;
+}
+
+}
+
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    img {
+        width: 60%; 
+        max-width: 1200px; 
+    }
+    .picture-wrap{
+        padding: 14rem;
+        padding-right: 50px;
+    }
+    #slideshow-container{
+        margin-left: 590px;
+        height: 70vh; 
+    
+    }
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+     width: 80%;
+    max-width: 800px;
+    padding-left: 70px;
+
+    .grid-item img{
+        height: 400px;
+        width: 500px;
+        margin-bottom: 10px;
+    }
+    h2{
+        font-size: 70px;
+        font-style: normal;
+        margin-left: 95px;
+    }
+    .grid-container{
+        margin-left: 21px;
+    }
+    .gallery-wrapper {
+        max-width: 750px;
+    }
+}
+h2{
+    font-family: "Charmonman", serif;
+    font-weight: 900;
+    font-size: 70px;
+   
+   
+  }
+  .karpati-text{
+      width: 90%; /* Keeps it responsive */
+      max-width: 800px;
+      margin: 20px auto;
+      border: 2px solid black;
+      border-radius: 25px; 
+      background-color: rgb(255, 255, 255);
+  }
+}
